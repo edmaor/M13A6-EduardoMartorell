@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class M13A6EduardoMartorellApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(M13A6EduardoMartorellApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(M13A6EduardoMartorellApplication.class, args);
+    }
 
 }
