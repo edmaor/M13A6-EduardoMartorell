@@ -5,6 +5,8 @@ import com.emartorell.m13a6.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("m13a6")
 public class StudentController {
     @Autowired
     private StudentRepository studentRepository;

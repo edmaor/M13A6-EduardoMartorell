@@ -6,11 +6,11 @@ import java.util.List;
 @Entity
 public class Course {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
 
-    @ManyToOne( = "course")
+    @OneToMany(mappedBy = "course")
     private List<CourseMaterial> courseMaterials;
 
     public Course() {
