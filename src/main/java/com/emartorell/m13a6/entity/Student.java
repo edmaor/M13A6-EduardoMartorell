@@ -1,19 +1,24 @@
 package com.emartorell.m13a6.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     private boolean wantsNewsLetter;
+    @ManyToMany
+    @JoinTable(
+            name = "JOINED_COURSES",
+            joinColumns = @JoinColumn(name = "STUDENT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
+    private List<Course> joinedCourses;
 
     public Student() {
     }
@@ -56,5 +61,13 @@ public class Student {
 
     public void setWantsNewsLetter(boolean wantsNewsLetter) {
         this.wantsNewsLetter = wantsNewsLetter;
+    }
+
+    public List<Course> getJoinedCourses() {
+        return joinedCourses;
+    }
+
+    public void setJoinedCourses(List<Course> joinedCourses) {
+        this.joinedCourses = joinedCourses;
     }
 }
